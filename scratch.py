@@ -5,6 +5,7 @@ SCREEN_HEIGHT = 600
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 
+
 # Тестовый класс для камеры, можешь переделать его в Enemy
 class Object(pygame.sprite.Sprite):
     def __init__(self):
@@ -14,6 +15,7 @@ class Object(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = 10
         self.rect.y = 260
+
 
 class Player(pygame.sprite.Sprite):
     right = True
@@ -75,14 +77,14 @@ class Player(pygame.sprite.Sprite):
     def go_left(self):
         # Сами функции будут вызваны позже из основного цикла
         self.change_x = -9  # Двигаем игрока по Х
-        if (self.right):  # Проверяем куда он смотрит и если что, то переворачиваем его
+        if self.right:  # Проверяем куда он смотрит и если что, то переворачиваем его
             self.flip()
             self.right = False
 
     def go_right(self):
         # то же самое, но вправо
         self.change_x = 9
-        if (not self.right):
+        if not self.right:
             self.flip()
             self.right = True
 
@@ -148,13 +150,13 @@ def main():
         active_sprite_list.update()
 
         # чтобы за мапу не уходил
-        #if player.rect.right > SCREEN_WIDTH:
+        # if player.rect.right > SCREEN_WIDTH:
         #    player.rect.right = SCREEN_WIDTH
 
-        #if player.rect.left < 0:
-         #   player.rect.left = 0
+        # if player.rect.left < 0:
+        #   player.rect.left = 0
 
-        #active_sprite_list.draw(screen)
+        # active_sprite_list.draw(screen)
 
         # Реализация камеры
         # Все спрайты смещаются на xoffset относительно игрока
@@ -175,3 +177,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+# тестирую работу комита
+# root

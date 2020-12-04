@@ -5,6 +5,7 @@ SCREEN_HEIGHT = 600
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 
+# Тестовый класс для камеры, можешь переделать его в Enemy
 class Object(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
@@ -16,6 +17,8 @@ class Object(pygame.sprite.Sprite):
 
 class Player(pygame.sprite.Sprite):
     right = True
+
+    # Проверка, находится ли игрок в воздухе
     isMidAir = False
 
     # Методы
@@ -153,6 +156,8 @@ def main():
 
         #active_sprite_list.draw(screen)
 
+        # Реализация камеры
+        # Все спрайты смещаются на xoffset относительно игрока
         xoffset = SCREEN_WIDTH / 2 - player.rect.x
         for sprite in active_sprite_list:
             sprite.rect.x += xoffset
